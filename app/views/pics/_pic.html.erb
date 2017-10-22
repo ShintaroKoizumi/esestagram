@@ -1,0 +1,42 @@
+<div class="pics-wrapper">
+  <div class="pic">
+    <div class="pic-head">
+      <div class="user-name thumb-img">
+        <%= pic.user.user_name %>
+      </div>
+      <div class="time-ago">
+        <%= time_ago_in_words pic.created_at %>
+      </div>
+    </div>
+    <div class="image senter-block">
+      <%= link_to pic do %>
+        <%= image_tag pic.image.url, class:'image-responsive', style: 'height:100%;width:400px' %>
+      <% end %>
+    </div>
+    <div class="pic-bottom">
+      <div class="caption">
+        <div class="caption-content">
+          <div class="user-name">
+            <%= pic.user.user_name %>
+          </div>
+          <%= pic.caption %>
+        </div>
+        <div class="comments" id="comments_#{pic.id}">
+          <% if pic.comments %>
+            <%= render pic.comments, pic: pic %>
+          <% end %>
+        </div>
+      </div>
+      <div class="comment-like-form row">
+        <div class="like-button col-sm-1">
+          <span class="glyphicon glyphicon-heart-empty"></span>
+        </div>
+        <div class="comment-form col-sm-11">
+          <%= form_for [pic, pic.comments.build], remote: true do |f| %>
+            <%= text_field :content, placeholder: 'コメント記入欄', class: "comment_content", id: "comment_content_#{pic.id}" %>
+            <%= f.submit 'コメント', class: 'comment-submit-button' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

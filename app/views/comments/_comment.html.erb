@@ -1,0 +1,13 @@
+<div id="comment">
+  <div class="user-name">
+    <%= comment.user.user_name %>
+  </div>
+  <div class="comment-content">
+    <%= comment.content %>
+  </div>
+  <% if comment.user == current_user %>
+    <%= link_to pic_comment_path(pic, comment), method: :delete, data: { confirm: "本当に削除してよろしいですか？" } do %>
+      <span class="glyphicon glyphicon-remove delete-comment-icon"></span>
+    <% end %>
+  <% end %>
+</div>

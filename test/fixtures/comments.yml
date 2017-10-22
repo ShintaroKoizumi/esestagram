@@ -2,8 +2,10 @@
 
 one:
   user: one
-  post: one
+  pic: one
+  content: MyText
 
 two:
   user: two
-  post: two
+  pic: two
+  content: MyText
