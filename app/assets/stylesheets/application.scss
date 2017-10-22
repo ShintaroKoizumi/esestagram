@@ -29,14 +29,13 @@ body {
 
 .navbar-default {
   background-color: #fff;
-  height: 54px;
   .navbar-nav li a {
     color: #125688;
   }
 }
 
 .navbar-container {
-  width: 640px;
+  max-width: 640px;
   margin: 0 auto;
 }
 

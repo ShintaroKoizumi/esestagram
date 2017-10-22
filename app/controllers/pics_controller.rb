@@ -1,16 +1,20 @@
 class PicsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_pic, only: [:show, :edit, :update, :destroy]
+  before_action :my_pic, only: [:edit, :update, :destroy]
 
   def index
     @pics = Pic.all
   end
 
   def new
-    @pic = Pic.new
+    @pic = current_user.pics.build
   end
 
   def create
-    if @pic = Pic.create(pic_params)
+    @pic = current_user.pics.build(pic_params)
+
+    if @pic.save
       flash[:success] = "投稿しました！！"
       redirect_to root_path
     else
@@ -36,7 +40,7 @@ class PicsController < ApplicationController
   end
 
   def destroy
-    @oic.destroy
+    @pic.destroy
     redirect_to root_path
   end
 
@@ -49,5 +53,12 @@ class PicsController < ApplicationController
 
   def set_pic
     @pic = Pic.find(params[:id])
+  end
+
+  def my_pic
+    unless current_user == @pic.user
+      flash[:alert] = "※あなたの投稿ではありません"
+      redirect_to root_path
+    end
   end
 end

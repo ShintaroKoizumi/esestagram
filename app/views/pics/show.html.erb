@@ -12,9 +12,13 @@
       <%= @pic.caption %>
     </p>
   </div>
-  <div class="text-center">
-    <%= link_to "戻る", pics_path %>
-    |
-    <%= link_to "編集", edit_pic_path(@pic) %>
+  <div class="text-center edit-links">
+    <% if @pic.user.id == current_user.id %>
+      <%= link_to "戻る", pics_path %>
+      |
+      <%= link_to "編集", edit_pic_path(@pic) %>
+    <% else %>
+      <%= link_to "戻る", pics_path %>
+    <% end %>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="form-wrapper">
-  <%= simple_form_for @pic do |f| %>
+  <%= simple_form_for @pic, html: { multipart: true } do |f| %>
     <div class="form-group">
       <%= f.label :image %>
       <%= f.file_field :image,id: :pic_image, required: true %>
