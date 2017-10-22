@@ -1,0 +1,19 @@
+<div class="pics-wrapper row">
+  <% @pics.each do |pic| %>
+    <div class="pic">
+      <div class="pic-head">
+        <div class="name">
+          Taro
+        </div>
+      </div>
+      <div class="image senter-block">
+        <%= link_to pic do %>
+          <%= image_tag pic.image.url, class:'image-responsive', style: 'height:100%;width:400px' %>
+        <% end %>
+      </div>
+      <p class="caption">
+        <%= pic.caption %>
+      </p>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,20 @@
+<div class="pics-wrapper row">
+  <div class="pic">
+    <div class="pic-head">
+      <div class="name">
+        Taro
+      </div>
+    </div>
+    <div class="image center-block">
+      <%= image_tag @pic.image.url, class:'image-responsive', style: 'height:100%;width:400px' %>
+    </div>
+    <p class="caption">
+      <%= @pic.caption %>
+    </p>
+  </div>
+  <div class="text-center">
+    <%= link_to "戻る", pics_path %>
+    |
+    <%= link_to "編集", edit_pic_path(@pic) %>
+  </div>
+</div>
