@@ -16,27 +16,26 @@
     <div class="pic-bottom">
       <div class="caption">
         <div class="caption-content">
-          <div class="user-name">
-            <%= pic.user.user_name %>
-          </div>
+          <%= link_to pic.user.user_name, '#', class: "user-name" %>
           <%= pic.caption %>
         </div>
-        <div class="comments" id="comments_#{pic.id}">
-          <% if pic.comments %>
+        <div class="comments" id="comments">
+          <% if pic.comments.any? %>
             <%= render pic.comments, pic: pic %>
           <% end %>
         </div>
       </div>
       <div class="comment-like-form row">
-        <div class="like-button col-sm-1">
+        <div class="like-button col-xs-1">
           <span class="glyphicon glyphicon-heart-empty"></span>
         </div>
-        <div class="comment-form col-sm-11">
+        <div class="comment-form col-xs-10">
           <%= form_for [pic, pic.comments.build], remote: true do |f| %>
-            <%= text_field :content, placeholder: 'コメント記入欄', class: "comment_content", id: "comment_content_#{pic.id}" %>
+            <%= f.text_field :content, placeholder: 'コメント記入欄', class: "comment_content", id: "comment_content" %>
             <%= f.submit 'コメント', class: 'comment-submit-button' %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
+</div>

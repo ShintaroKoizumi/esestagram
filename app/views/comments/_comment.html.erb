@@ -1,12 +1,10 @@
 <div id="comment">
-  <div class="user-name">
-    <%= comment.user.user_name %>
-  </div>
-  <div class="comment-content">
-    <%= comment.content %>
-  </div>
+  <%= link_to comment.user.user_name, '#', class: "user-name" %>
+<!-- <div class="comment-content"> -->
+  <%= comment.content %>
+<!--  </div> -->
   <% if comment.user == current_user %>
-    <%= link_to pic_comment_path(pic, comment), method: :delete, data: { confirm: "本当に削除してよろしいですか？" } do %>
+    <%= link_to pic_comment_path(pic, comment), method: :delete, data: { pic_id: pic.id, value: pic.comments.count, confirm: "本当に削除してよろしいですか？" }, remote: true, id: "delete-#{comment.id}", class: "delete-comment" do %>
       <span class="glyphicon glyphicon-remove delete-comment-icon"></span>
     <% end %>
   <% end %>

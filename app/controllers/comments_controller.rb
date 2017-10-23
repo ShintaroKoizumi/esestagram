@@ -1,6 +1,14 @@
 class CommentsController < ApplicationController
   before_action :set_pic
 
+  def index
+    @comments = @pic.comments.order('created_at asc')
+
+    respond_to do |format|
+      format.html { render layout: !request.xhr? }
+    end
+  end
+
   def create
     @comment = @pic.comments.build(comment_params)
     @comment.user_id = current_user.id
@@ -18,10 +26,13 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = @pic.comments.find(params[:id])
-    @comment.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.js
+
+    if @comment.user_id == current_user.id
+      @comment.destroy
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
     end
   end
 

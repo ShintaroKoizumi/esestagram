@@ -1,3 +1,4 @@
++++++++++++++++++++++++++++++++++
 テキスト外から追加したコード
 
 app/controllers/application_controller.rb
@@ -16,3 +17,5 @@ app/controllers/application_controller.rb
     devise_parameter_sanitizer.permit(:account_update, keys: PERMISSIBLE_ATTRIBUTES)
   end
 ======
+
+++++++++++++++++++++++++++++++++
