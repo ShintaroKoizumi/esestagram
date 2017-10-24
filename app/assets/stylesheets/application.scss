@@ -16,11 +16,20 @@
  */
 
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: #fafafa;
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica,sans-serif;
 }
-
+.navbar {
+  margin-bottom: 0px;
+}
+.alert {
+  margin-bottom: 0px;
+}
 .navbar-brand {
   a {
     color: #125688;
@@ -76,7 +85,7 @@ body {
   border-top: 1px solid #eeefef;
   max-width: 100%;
 }
-.post-bottom {
+.pic-bottom {
   .user-name, .comment-content {
     display: inline;
   }
@@ -152,4 +161,46 @@ body {
 .comment-submit-button {
   position: absolute;
   left: -9999px;
+}
+
+
+.registration-bg {
+  padding-top: 4em;
+  height: 100%;
+  background-image: image-url('regbackg.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.log-in{
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+  border: none;
+}
+.login-bg {
+  padding-top: 4em;
+  height: 100%;
+  background-image: image-url('loginbg.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.panel {
+  border-radius: 8px;
+}
+.panel-heading{
+  h1 {
+    text-align: center;
+  }
+}
+
+#image-preview {
+  margin: 0px auto;
+}
+#post_image {
+  padding: 1em;
+  margin: 0px auto;
 }

@@ -1,12 +1,6 @@
-<div class="text-center">
-  <%= image_tag @pic.image.url, class:'image-responsive', style: 'height:100%;width:400px' %>
-</div>
-
-<%= render 'pics/form' %>
-
+<%= render 'form' %>
 <div class="text-center edit-links">
-  <%= link_to "削除", pic_path(@pic), method: :delete,
-   data: {confirm: "本当に削除してよろしいですか？" } %>
-   |
-   <%= link_to "戻る", pics_path %>
+  <%= link_to "削除", pic_path(@pic), method: :delete, data: {confirm: "本当に削除してよろしいですか？" } %>
+  |
+  <%= link_to "戻る", pics_path %>
 </div>

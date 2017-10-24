@@ -38,6 +38,8 @@ gem 'mini_magick'
 gem 'simple_form', '~> 3.5'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise', '~> 4.3'
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

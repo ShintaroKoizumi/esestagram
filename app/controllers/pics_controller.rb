@@ -4,7 +4,7 @@ class PicsController < ApplicationController
   before_action :my_pic, only: [:edit, :update, :destroy]
 
   def index
-    @pics = Pic.all
+    @pics = Pic.all.order('created_at DESC')
   end
 
   def new
