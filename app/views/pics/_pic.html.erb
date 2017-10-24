@@ -2,7 +2,7 @@
   <div class="pic">
     <div class="pic-head">
       <div class="user-name thumb-img">
-        <%= pic.user.user_name %>
+        <%= link_to pic.user.user_name, profile_path(pic.user.user_name) %>
       </div>
       <div class="time-ago">
         <%= time_ago_in_words pic.created_at %>
