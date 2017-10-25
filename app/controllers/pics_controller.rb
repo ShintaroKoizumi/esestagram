@@ -15,6 +15,7 @@ class PicsController < ApplicationController
     @pic = current_user.pics.build(pic_params)
 
     if @pic.save
+      PicMailer.pic_mail(@pic).deliver
       flash[:success] = "投稿しました！！"
       redirect_to root_path
     else

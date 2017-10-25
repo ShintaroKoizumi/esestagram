@@ -26,3 +26,6 @@ app/controllers/application_controller.rb
 ファイルをcoffeeで動的に表示する。
 今後使わなそうだから一時的に飛ばそう
 gem refile 検討
+
+
+++++++++++++++++++++++++++++++++

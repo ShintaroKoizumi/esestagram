@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   resources :pics do
     resources :comments
   end
-  resources :favorites, only: [:create, :destroy]
-  root "pics#index"
+  resources :favorites, only: %i[create destroy]
+  root 'pics#index'
   get ':user_name', to: 'profiles#show', as: :profile
   get ':user_name/favorites', to: 'profiles#favorites', as: :user_favorites
   get ':user_name/edit', to: 'profiles#edit', as: :edit_profile
   patch ':user_name/edit', to: 'profiles#update', as: :update_profile
+
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
