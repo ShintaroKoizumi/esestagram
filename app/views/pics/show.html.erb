@@ -1,10 +1,10 @@
 <%= render 'pic', pic: @pic %>
 <div class="text-center edit-links">
   <% if @pic.user.id == current_user.id %>
-  <%= link_to "戻る", pics_path %>
+  <%= link_to "戻る", pics_path , class: "btn btn-success" %>
   |
-  <%= link_to "編集", edit_pic_path(@pic) %>
+  <%= link_to "編集", edit_pic_path(@pic), class: "btn btn-info" %>
 <% else %>
-  <%= link_to "戻る", pics_path %>
+  <%= link_to "戻る", pics_path, class: "btn btn-success" %>
   <% end %>
 </div>
