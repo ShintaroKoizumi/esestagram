@@ -1,6 +1,9 @@
 <div class="pics-wrapper">
   <div class="pic">
-    <div class="pic-head">
+    <div class="pic-head row">
+      <div class="col-xs-3">
+        <%= image_tag pic.user.avatar.url.to_s, size: "50x50", class: "img-circle " %>
+      </div>
       <div class="user-name thumb-img">
         <%= link_to pic.user.user_name, profile_path(pic.user.user_name) %>
       </div>
