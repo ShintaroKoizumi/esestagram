@@ -6,7 +6,6 @@ class ProfilesController < ApplicationController
 
   def show
     @pics = @user.pics.order('created_at DESC')
-
   end
 
   def edit
@@ -21,6 +20,10 @@ class ProfilesController < ApplicationController
       flash[:error] = @user.errors.full_messages
       render :edit
     end
+  end
+
+  def favorites
+    @favorites = @user.favorites.order('created_at DESC')
   end
 
 

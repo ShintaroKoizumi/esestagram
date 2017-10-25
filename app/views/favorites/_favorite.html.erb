@@ -1,0 +1,8 @@
+<% favorite = current_user.favorites.find_by(pic_id: pic.id) %>
+<% if favorite.present? %>
+  <%= link_to favorite_path(id: favorite.id), method: :delete, class: "glyphicon glyphicon-heart", style: "color: red", remote: true do %>
+  <% end %>
+<% else %>
+  <%= link_to favorites_path(pic_id: pic.id),method: :post, class: "glyphicon glyphicon-heart-empty", remote: true do %>
+  <% end %>
+<% end %>

@@ -27,7 +27,9 @@
       </div>
       <div class="comment-like-form row">
         <div class="like-button col-xs-1">
-          <span class="glyphicon glyphicon-heart-empty"></span>
+          <div class="pic_function_btn" id="function_btn_favorite_<%= pic.id %>">
+            <%= render partial: 'favorites/favorite', locals: {pic: pic} %>
+          </div>
         </div>
         <div class="comment-form col-xs-10">
           <%= form_for [pic, pic.comments.build], remote: true do |f| %>

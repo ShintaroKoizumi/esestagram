@@ -18,6 +18,9 @@
             <%= link_to "投稿する", new_pic_path %>
           </li>
           <li>
+            <%= link_to "お気に入り", user_favorites_path(current_user.user_name) %>
+          </li>
+          <li>
             <%= link_to "プロフィール", profile_path(current_user.user_name) %>
           </li>
           <li>

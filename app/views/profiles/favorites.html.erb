@@ -1,0 +1,32 @@
+<div class="pics-wrapper">
+  <div class="row profile-header">
+    <div class="col-md-6">
+      <div class="img-circle">
+        <%= profile_avatar_select(@user) %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="user-name-and-follow">
+        <h3 class="profile-user-name">
+          <%= @user.user_name %>
+        </h3>
+        <span>
+          <% if @user == current_user %>
+            <%= link_to 'プロフィール編集', update_profile_path(@user.user_name),  class: 'btn edit-button' %>
+          <% end %>
+        </span>
+      </div>
+      <p class="profile-bio">
+        <%= @user.bio %>
+      </p>
+      <div class="user-statistics">
+        <p>
+          <%= pluralize @user.pics.count, 'pic' %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<% @favorites.each do |favorite| %>
+  <%= render 'pics/pic', pic: favorite.pic %>
+<% end %>
